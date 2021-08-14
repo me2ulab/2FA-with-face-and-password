@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/font-awesome.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+</head>
+<body>
+
+	
+	<header>
+		{% if not loggedIn %}
+		<div class="container">
+			
+		</div>
+			<div class="container-fluid ml-5">
+				<div class="row main-content bg-success text-center">
+					<div class="col-md-4 text-center company__info">
+						<span class="company__logo"><h2><span class="fa fa-android"></span></h2></span>
+						<h4 class="company_title">University of Lagos</h4>
+						
+					</div>
+					<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+						<div class="container-fluid">
+							<div class="row">
+								<h2>Log In</h2>
+								<span style="float: right;">2FA with Face and Password</span>
+							</div>
+							<div class="row">
+								<form control="" class="form-group" action="/login" method="POST">
+									<div class="row">
+										<input type="text" name="username" id="username" class="form__input" placeholder="Matric No">
+									</div>
+									<div class="row">
+										<!-- <span class="fa fa-lock"></span> -->
+										<input type="password" name="password" id="password" class="form__input" placeholder="Password">
+									</div>
+									<div class="row">
+										<input type="checkbox" name="remember_me" id="remember_me" class="">
+										<label for="remember_me">Remember Me!</label>
+									</div>
+									<div class="row">
+										<input type="submit" value="Submit" class="btn">
+									</div>
+								</form>
+							</div>
+							<div class="row">
+								<p>Don't have an account? <a href="#">Register Here</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer -->
+	</div>
+	{%else%}
+	<div class="container">
+		<h1 class="display-4 text-center"><img src="">Welcome to University of Lagos Test Portal</h1>
+
+		<div class="container">
+			<div class="container mt-sm-5 my-1">
+				<div class="question ml-sm-5 pl-sm-5 pt-2">
+					<div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+					<div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> <label class="options">Small Business Owner or Employee <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Nonprofit Owner or Employee <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Journalist or Activist <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Other <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div>
+				</div>
+				
+                <div class="btn btn-danger text-white"><a href="/logout"> Sign Out</a></div>
+
+			</div>
+		</div>
+		<!-- <div class="float-right btn btn-danger text-white"><a href="/logout"> Sign Out</a></div> -->
+	</div>
+</div>
+</div>
+	</header>
+{%endif%}
+<script  src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+<script  src="{{url_for('static',filename='js/tether.min.js')}}"></script>
+<script  src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>

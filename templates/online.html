@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Online Search</title>
+
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+      <div class="container">
+      <div class="row">
+        
+        <div class="col-md-8 mx-auto">
+          <span class="h1 text-primary"> LabNet:<h2 class="text-white"> Search Online</h2></span>
+          <form action="/online" method="POST">
+            <div class="form-group">
+              <label class="form-control-label">Equipment</label>
+              <input type="text" name="equipment" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="form-control-label">Subject</label>
+              <select class="form-control" name="subject">
+                <option value="1">Biology</option>
+                <option value="2">Chemistry</option>
+                <option value="3">Physics</option>
+              </select>
+             </div>
+			  <div class="form-group">
+              <label>Practical</label>
+              <select class="form-control" name="practical">
+                <optgroup label="BIOLOGY: Body Systems">
+    				<option value="1">Food Burning</option>
+    				<option value="2">Smoking Machine</option>
+					<option value="3">Vitamin C</option>
+  				</optgroup>
+				<optgroup label="BIOLOGY: Cells">
+    				<option value="4">Onion Cells</option>
+    				<option value="5">Enzymes</option>
+					<option value="6">Potato Cells</option>
+					<option value="7">Animal Cells</option>
+					<option value="8">Osmosis</option>
+  				</optgroup>
+				<optgroup label="BIOLOGY: Environmental Biology">
+    				<option value="9">Habitat</option>
+    			</optgroup>
+				<optgroup label="BIOLOGY: Microbiology">
+    				<option value="10">Fermentation</option>
+    			</optgroup>
+				<optgroup label="BIOLOGY: Plants">
+    				<option value="11">Gravitropism</option>
+    				<option value="12">Photosynthesis</option>
+					<option value="13">Phototropism</option>
+					<option value="14">Plant Fibres</option>
+					<option value="15">Plant Genetics</option>
+					<option value="16">Water Absorption in Plants</option>
+  				</optgroup>
+				<optgroup label="CHEMISTRY: Acid and Alkalis">
+    				<option value="17">Introduction to Ph Scale</option>
+    				<option value="18">PH Indicator</option>
+					<option value="19">Rainbow Burette</option>
+				</optgroup>
+				<optgroup label="CHEMISTRY: Change of State">
+    				<option value="20">Freezing Water</option>
+    				<option value="21">Ice Density</option>
+					<option value="22">Investigation of Rate of Evaporation</option>
+				</optgroup>
+				<optgroup label="CHEMISTRY: Earth Sciences">
+    				<option value="23">Combustion of Carbon</option>
+    				<option value="24">Crystal Garden</option>
+					<option value="25">Global Warming</option>
+					<option value="26">Igneous Rocks</option>
+				</optgroup>
+				<optgroup label="CHEMISTRY: Particles">
+    				<option value="27">Brownian Motion</option>
+    				<option value="28">Diffusion in Liquids</option>
+					<option value="29">Dust Explosion</option>
+					<option value="30">Measuring Density</option>
+					<option value="31">Rate of Diffusion</option>
+					<option value="32">Simple Gas Difussion</option>
+  				</optgroup>
+				<optgroup label="CHEMISTRY: Properties of Materials">
+    				<option value="33">Chocolate Structure</option>
+    				<option value="34">Electrostatic Slime</option>
+					<option value="35">Making and Testing Concrete</option>
+					<option value="36">Making Glue</option>
+					<option value="37">Paper Kettle</option>
+				</optgroup>
+				<optgroup label="CHEMISTRY: Reaction">
+    				<option value="38">Chemiluminescence</option>
+    				<option value="39">Exothermic and Endothermic Reaction</option>
+					<option value="40">Flame Test</option>
+					<option value="41">Group Two Metal Reaction</option>
+					<option value="42">Heating Copper</option>
+					<option value="43">Investigation of Rusting</option>
+					<option value="44">Lead Acid Cell</option>
+    				<option value="45">Lead Nitrate and Potassium Iodide Reaction</option>
+					<option value="46">Making a Compound</option>
+					<option value="47">Making and Testing Oxygen</option>
+					<option value="48">Making electricity from Chemicals</option>
+					<option value="49">Neutralization of Indigestion Tablets</option>
+					<option value="50">Reversible Reaction</option>
+					<option value="51">Thermite Reaction</option>
+  				</optgroup>
+				<optgroup label="CHEMISTRY: Seperation Techniques">
+    				<option value="52">Chromatography of Leaves</option>
+    				<option value="53">Distillation</option>
+					<option value="54">Sand and Salt Preparation</option>
+				</optgroup> 
+				<optgroup label="PHYSICS">
+    				<option value="55">Atomic Physics</option>
+    				<option value="56">Electricity</option>
+					<option value="57">Electromagnetism</option>
+					<option value="58">Electrostatics</option>
+					<option value="59">Energy Transfer</option>
+					<option value="60">Force, Motion and Dynamics</option>
+					<option value="61">Heat</option>
+    				<option value="62">Light</option>
+					<option value="63">Magnetism</option>
+					<option value="64">Measurement</option>
+					<option value="65">Sound and Waves</option>
+				</optgroup>
+
+              </select>
+			  </div>
+
+            <div class="text-center"> <input type="submit" name="Search Online" class="btn btn-primary"></div>
+          </form>
+          <a href="/" class="btn btn-primary">Back</a>
+        </div>
+      </div>
+      <hr>
+      {% if data %}
+      <form action="/add" method="POST">
+    <div class="row ml-4">
+      {% for item in data %}
+      
+          <div class="col-md-3 bg-white" style="margin:1px">
+            <div class="row">
+              <div class="col"><input type="checkbox" name="onlineImage" class="form-control" value={{item}}></div>
+            </div>
+            <div class="col"><img src={{"/static/temporary/"+item}} width="200px" height="200px"  /></div>
+   </div>
+   {% endfor %} 
+    </div>
+   <div class="text-center my-3">
+     <input type="submit" name="" value="UPDATE DATABASE" class="btn btn-primary">
+   </div>
+   </form>
+   
+   {%endif%}
+    
+    <div class="footer text-center font-weight-bold">&copy; Copyright 2018 All Right Reserved </div>
+  </div>
+
+    <!-- /.container -->
+
+  <!-- Scripts -->
+  <script src="//code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="{{ url_for('static', filename='main.js') }}" type="text/javascript"></script>
+
+</body>
+
+</html>
